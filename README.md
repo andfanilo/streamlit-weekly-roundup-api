@@ -4,6 +4,8 @@
 
 Browse through all links from Streamlit Weekly Roundup [posts](https://discuss.streamlit.io/tag/weekly-roundup). _Also looking for an excuse to do a FastAPI/Streamlit app :)_
 
+![](./demo.gif)
+
 ## Run
 
 #### Download data
