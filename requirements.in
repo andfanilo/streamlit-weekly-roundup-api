@@ -1,0 +1,6 @@
+beautifulsoup4
+fastapi
+pydantic
+requests
+streamlit
+typer
