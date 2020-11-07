@@ -1,5 +1,7 @@
 # Streamlit Weekly Roundup API
 
+[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://share.streamlit.io/andfanilo/streamlit-weekly-roundup-api/main/src/client.py)
+
 Browse through all links from Streamlit Weekly Roundup [posts](https://discuss.streamlit.io/tag/weekly-roundup). _Also looking for an excuse to do a FastAPI/Streamlit app :)_
 
 ## Run
