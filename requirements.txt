@@ -1,6 +1,6 @@
 beautifulsoup4
-fastapi
+#fastapi
 pydantic
-requests
+#requests
 streamlit
-typer
+#typer
