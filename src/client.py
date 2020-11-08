@@ -1,3 +1,5 @@
+from typing import Dict
+
 import streamlit as st
 import streamlit.components.v1 as components
 
@@ -6,9 +8,13 @@ from dataset import load_topics
 
 
 @st.cache
-def load_data(path_to_folder: str):
+def load_data(path_to_folder: str) -> Dict[str, Dict[str, str]]:
+    """Load data as section -> mapping of urls to their titles"""
     all_topics = load_topics(path_to_folder)
-    section_to_urls = extract_section_to_urls(all_topics)
+    section_to_urls = {
+        section: {link.url: link.title for link in links}
+        for section, links in extract_section_to_urls(all_topics).items()
+    }
     return section_to_urls
 
 

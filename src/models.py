@@ -4,7 +4,6 @@ from typing import Optional
 from pydantic import AnyHttpUrl
 from pydantic import BaseModel
 from pydantic import Field
-from pydantic import validator
 
 ########################################################################
 # Models for parsing JSON data
@@ -12,10 +11,8 @@ from pydantic import validator
 
 
 class Link(BaseModel):
-    url: AnyHttpUrl
-    title: Optional[str]
-    domain: str
-    root_domain: str
+    url: AnyHttpUrl = Field(..., example="https://www.streamlit.io/sharing")
+    title: Optional[str] = Field(None, example="Streamlit Sharing")
 
 
 class Post(BaseModel):
@@ -51,12 +48,6 @@ class Section(BaseModel):
     name: str
     slug: str
 
-    @validator("slug")
-    def name_and_slug_match(cls, v, values):
-        if v != values["name"].lower().replace(" ", "-"):
-            raise ValueError("slug and name do not match")
-        return v
-
     class Config:
         schema_extra = {
             "example": {
@@ -67,5 +58,15 @@ class Section(BaseModel):
         }
 
 
-class ListSections(BaseModel):
+class SectionsResponse(BaseModel):
     sections: List[Section]
+
+
+class LinksResponse(BaseModel):
+    next_url: Optional[str] = Field(
+        None,
+        description="URL for next batch of links. If null, then there are no more links.",
+        example="/links?page=4&number_links=50",
+    )
+    length: int = Field(..., example=50)
+    links: List[Link]
