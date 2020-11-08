@@ -14,13 +14,22 @@ TODO
 
 #### API
 
-TODO
+```bash
+cd src/
+uvicorn server:app --reload
+```
+
+Open a browser and head to `http://localhost:8000`.
+
+Check Swagger UI on `/docs` or Redoc on `/redoc`.
 
 #### Streamlit app
 
 ```bash
 streamlit run src/client.py
 ```
+
+Open a browser and head to `http://localhost:8501`.
 
 ## Next steps
 

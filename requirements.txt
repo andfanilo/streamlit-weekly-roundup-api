@@ -1,6 +1,7 @@
 beautifulsoup4
-#fastapi
+fastapi
 pydantic
 #requests
 streamlit
 #typer
+uvicorn

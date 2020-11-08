@@ -1,39 +1,10 @@
 from functools import reduce
-
 from pathlib import Path
 from typing import Dict
 from typing import List
-from typing import Optional
 
 from bs4 import BeautifulSoup
-from pydantic import AnyHttpUrl
-from pydantic import BaseModel
-
-
-class Link(BaseModel):
-    url: AnyHttpUrl
-    title: Optional[str]
-    domain: str
-    root_domain: str
-
-
-class Post(BaseModel):
-    cooked: str
-    link_counts: Optional[List]
-
-
-class Details(BaseModel):
-    links: List[Link]
-
-
-class PostStream(BaseModel):
-    posts: List[Post]
-
-
-class Topic(BaseModel):
-    title: str
-    post_stream: PostStream
-    details: Details
+from models import Topic
 
 
 def _merge_dict_of_dicts(
