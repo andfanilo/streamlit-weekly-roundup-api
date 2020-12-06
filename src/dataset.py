@@ -1,3 +1,5 @@
+import logging
+
 from functools import reduce
 from pathlib import Path
 from typing import Dict
@@ -25,7 +27,7 @@ def _validate_link(link: str) -> bool:
         Link(url=link)
         return True
     except ValidationError:
-        print(f"error parsing URL: {link}")
+        logging.warn(f"error parsing URL: {link}")
         return False
 
 

@@ -1,3 +1,4 @@
+import logging
 from typing import Dict
 
 import streamlit as st
@@ -19,8 +20,17 @@ def load_data(path_to_folder: str) -> Dict[str, Dict[str, str]]:
 
 
 def main():
+    st.set_page_config(
+        page_title="Streamlit Weekly roundups explorer", page_icon=":star:"
+    )
+    logging.basicConfig(
+        level=logging.INFO,
+        format="%(asctime)s - %(message)s",
+        datefmt="%H:%M:%S",
+    )
+
     st.title("Streamlit Weekly Roundups Explorer")
-    st.sidebar.subheader("Configuration")
+    st.sidebar.header("Configuration")
     section_to_urls = load_data("./data")
 
     selected_section = st.sidebar.selectbox(
