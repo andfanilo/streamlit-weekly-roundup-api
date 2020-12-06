@@ -1,12 +1,12 @@
 name: Fetch latest topic, Push data to repo
 
 on:
-  push:
-    branches:
-      - main
-  #workflow_dispatch:
-  #schedule:
-  #  - cron: "0 0 * * 0"
+  #push:
+  #  branches:
+  #    - main
+  workflow_dispatch:
+  schedule:
+    - cron: "0 0 * * 0"
 
 jobs:
   scheduled:
